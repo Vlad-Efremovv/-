@@ -20,14 +20,38 @@ namespace сорт
     /// </summary>
     public partial class PageAdd : Page
     {
-        public PageAdd()
+        private ArrayBD CreateNum = new ArrayBD();
+
+        public PageAdd(ArrayBD arrayBD)
         {
             InitializeComponent();
+
+            if (arrayBD!=null)
+            {
+                CreateNum = arrayBD;
+            }
+
+            DataContext = CreateNum;
         }
+
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            POBEDA_BDEntities.GetContext().ArrayBD.Add(CreateNum);
 
+            try
+            {
+                POBEDA_BDEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена", "Успех");
+
+                Menager.MainFrame.GoBack();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("В ходе выполнения сохранения возникла ошибка", "Ошибка");
+            }
         }
+
+        
     }
 }

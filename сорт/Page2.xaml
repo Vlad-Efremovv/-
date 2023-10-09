@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:сорт"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page2">
+      Title="Page2" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,24 +15,15 @@
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="DGrid_BD" Margin="70,34,494,10" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="DGrid_BD" Margin="286,34,376,10" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Id }"/>
                 <DataGridTextColumn Header="Значения" Binding="{Binding Num}"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="Edit_Colomn" Content="Редактировать" Click="Edit_Colomn_Click"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
             </DataGrid.Columns>
-
-
         </DataGrid>
 
         <Button Content="Добавить" Name="btm_add" HorizontalAlignment="Left" Height="50" Margin="57,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="150" Click="btm_add_Click"/>
         <Button Content="Удалить" Name="btn_delete" HorizontalAlignment="Left" Height="50" Margin="564,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="150" Click="btn_delete_Click"/>
+        <Button Content="Сортировать" x:Name="btn_start" HorizontalAlignment="Left" Height="50" Margin="280,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="150" Click="btn_start_Click"/>
     </Grid>
 </Page>
